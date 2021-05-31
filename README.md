@@ -218,7 +218,7 @@ Run the main method of the provided TetrisViewer class. Verify that the followin
 
 # *MILESTONE 5:* Stress Test
 
-Use test mode (use the arg "test" when invoking the main method of JTetrisViewer) to force JTetris to use the fixed sequence of 100 pieces. Test mode with the unchanged SimpleBrain and with the pieces array built in the standard order should lead to exactly the following board after the 100 pieces have been played…![image alt text](image_8.png)
+Use test mode (use the arg "test" when invoking the main method of JTetrisViewer) to force JTetris to use the fixed sequence of 100 pieces. Test mode with the unchanged SimpleBrain and with the pieces array built in the standard order should lead to exactly the following board after the 100 pieces have been played…![image alt text](image_8.png)
 
 This is an extremely rigorous test of the Board. Although there were only 100 different boards with a piece landed on screen, the brain explored thousands of boards that were never on screen. If the stress test is not coming out right, you should ook at the JPieceTest output to verify that the pieces are correct in every detail.
 

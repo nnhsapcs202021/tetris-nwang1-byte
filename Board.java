@@ -37,7 +37,7 @@ public class Board
 
     private boolean committed;
 
-	// set DEBUG to true while developing the lab to enable sanity checks
+    // set DEBUG to true while developing the lab to enable sanity checks
     private boolean DEBUG = true;
 
     /**
@@ -185,7 +185,7 @@ public class Board
      *                      specified column and row
      *  @return PLACE_OK for a regular placement or PLACE_ROW_FILLED for a
      *      regular placement that causes at least one row to be filled.
-     *		PLACE_OUT_BOUNDS or PLACE_BAD for error cases.
+     *        PLACE_OUT_BOUNDS or PLACE_BAD for error cases.
      */
     public int place(Piece piece, int placeCol, int placeRow)
     {
@@ -265,13 +265,13 @@ public class Board
 
     /**
      * Deletes rows that are filled all the way across, moving blocks above down.
-     * 	Returns true if any row clearing happened.
+     *     Returns true if any row clearing happened.
      * 
      * Implementation hints:
      *      This is complicated.
      *      Ideally, you want to copy each row down to its correct location in one pass.
      *      Note that more than one row may be filled.
-     *		Remember to update the column heights and max height if needed.
+     *        Remember to update the column heights and max height if needed.
      *      
      *  @return true if any row clearing happened
      */

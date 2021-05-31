@@ -43,7 +43,29 @@ public final class Piece {
      */
     private Piece(Point[] points)
     {
-        // TODO: implement constructor
+        this.body = points;
+        double maximumWidth = -1;
+        double maximumHeight = -1;
+        for (Point point : points){
+            if (point.getY() > maximumHeight){
+                maximumHeight = point.getY();
+            }
+            if (point.getX() > maximumWidth){
+                maximumWidth = point.getX();
+            }
+        }
+        this.width = (int) maximumWidth + 1;
+        this.height = (int) maximumHeight + 1;
+        this.skirt = new int[this.width];
+        for (int i = 0; i < this.width; i++){
+            int yMin = Integer.MAX_VALUE;
+            for (Point point : points) {
+                if (point.getX() == i && point.getY() < yMin){
+                    yMin = point.y;
+                }
+            }
+            this.skirt[i] = yMin;
+        }
     }   
 
     /**
@@ -159,6 +181,10 @@ public final class Piece {
         String str = "";
         
         // TODO: build a string that contains all of the attributes of this Piece
+        str += "Body of piece: " + this.body.toString();
+        str += "Skirt of piece: " + this.skirt.toString();
+        str += "Width of piece: " + this.width;
+        str += "Height of piece: " + this.height;
         
         return str;
     }
@@ -218,10 +244,28 @@ public final class Piece {
             }
 
             // TODO: step 1: reflect across the line y = x
+            for (Point points : rotatedPoints) {
+                int temp = (int) points.getX();
+                points.x = (int) points.getY();
+                points.y = temp;
+            }
             
             // TODO: step 2: reflect across y axis
+            for (Point points : rotatedPoints) {
+                points.x = (int) (points.getX() * -1);
+            }
             
             // TODO: step 3: translate right
+            int minX = Integer.MAX_VALUE;
+            for (Point points : rotatedPoints) {
+                if (points.getX() < minX) {
+                    minX = (int) points.getX();
+                }
+            }
+            
+            for (Point points : rotatedPoints) {
+                points.x = ((int) points.getX()) + Math.abs(minX);
+            }
             
             // create the rotated piece, update next, prepare for nextIteration
             Piece rotatedPiece = new Piece(rotatedPoints);
