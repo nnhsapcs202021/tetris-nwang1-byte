@@ -25,6 +25,9 @@ public class BrainFactory
          *      the list.
          */
         
-        
+        ArrayList<Brain> brainsOfSystem = new ArrayList<Brain>();
+        brainsOfSystem.add(new SimpleBrain());
+        brainsOfSystem.add(new SmallBrain());
+        return brainsOfSystem;
     }
 }
